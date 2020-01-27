@@ -293,7 +293,7 @@ public class GooglePlayAPI {
         byte[] responseBytes = client.post(URL_LOGIN, params, headers);
         Map<String, String> response = parseResponse(new String(responseBytes));
         if (response.containsKey("Auth")) {
-            return response.get("Auth");
+            return response.get("Auth") + " " + gsfId;
         } else {
             throw new AuthException("Authentication failed! (login)");
         }
